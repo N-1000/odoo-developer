@@ -1,0 +1,38 @@
+/* custom_styles.css */
+.o_field_text.custom-style {
+    border-color: #8e44ad; /* Morado de Odoo */
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9; /* Gris claro */
+}
+
+/* Estilo para el notebook */
+.custom-notebook {
+    border: 2px solid #8e44ad; /* Morado de Odoo */
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Estilo para el campo de comentario */
+.o_field_comment {
+    font-size: 14px;
+    color: #333;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Estilo para el campo de sentimiento */
+.o_field_sentiment {
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center; /* Alineación del texto en el centro */
+    font-weight: bold; /* Negrita para destacar */
+}
+
+/* Estilo para el campo de fecha */
+.o_field_date {
+    font-weight: bold;
+}
+ 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_feedback_form" model="ir.ui.view">
+        <field name="name">feedback.form</field>
+        <field name="model">feedback.anonymous</field>
+        <field name="arch" type="xml">
+            <form string="Feedback Anonymous">
+                <sheet>
+                    <notebook class="custom-notebook">
+                        <page string="General Information" class="custom-page">
+                            <group>
+                                <field name="comment" class="o_field_text custom-style"/>
+                                <field name="sentiment" class="o_field_sentiment_two"
+                                       readonly="1" 
+                                       widget="statusbar" 
+                                       statusbar_visible="positive,negative,neutral"/>
+                                <field name="date" readonly="1" class="o_field_date"/>
+                            </group>
+                        </page>
+                        <page string="Other Details" class="custom-page">
+                            <group>
+                                <field name="date" readonly="1" class="o_field_date"/> 
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Vista tree feedback -->
+    <record id="view_feedback_tree" model="ir.ui.view">
+        <field name="name">feedback.tree</field>
+        <field name="model">feedback.anonymous</field>
+        <field name="arch" type="xml">
+            <tree string="Feedback Anonymous">
+                <field name="comment" class="o_field_comment"/>
+                <field name="sentiment" class="o_field_sentiment"
+                       decoration-success="sentiment == 'positive'"
+                       decoration-danger="sentiment == 'negative'"
+                       decoration-muted="sentiment == 'neutral'"/>
+                <field name="date" class="o_field_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_feedback_graph" model="ir.ui.view">
+        <field name="name">feedback.graph</field>
+        <field name="model">feedback.anonymous</field>
+        <field name="arch" type="xml">
+            <graph string="Feedback Sentiment Analysis" type="bar">
+                <field name="sentiment" type="row"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <!-- Acción para abrir la vista de feedback -->
+    <record id="action_feedback" model="ir.actions.act_window">
+        <field name="name">Feedback Anonymous</field>
+        <field name="res_model">feedback.anonymous</field>
+        <field name="view_mode">tree,graph,form</field>
+    </record>
+    <!-- Menú para acceder al módulo -->
+    <menuitem id="menu_feedback_root" name="Feedback Anonymous" sequence="10"/>
+    <menuitem id="menu_feedback" name="Feedback" parent="menu_feedback_root" action="action_feedback" sequence="10"/> 
+</odoo>

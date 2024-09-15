@@ -1,0 +1,16 @@
+/* Estilo para el formulario */
+.o_form_sheet {
+    background-color: #f8f9fa; /* Color de fondo más claro */
+    padding: 20px; /* Añadir padding */
+}
+    
+.o_field_char {
+    border: 2px solid #5c2d91; /* Quitar borde */
+    margin-bottom: 15px; /* Espacio entre campos */
+    padding: 10px; /* Padding dentro del campo */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: 400; /* Peso de fuente */
+    background: transparent; /* Fondo transparente */
+}
+
+

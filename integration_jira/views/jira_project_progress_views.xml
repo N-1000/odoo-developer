@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista Form -->
+    <record id="view_jira_integration_form" model="ir.ui.view">
+        <field name="name">jira.integration.form</field>
+        <field name="model">jira.project.progress</field> 
+        <field name="arch" type="xml">
+            <form string="Jira Integration">
+                <sheet>
+                    <group>
+                        <field name="jira_url"/>
+                        <field name="jira_username"/>
+                        <field name="jira_api_token"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+     
+    <!-- Vista Tree -->
+    <record id="view_jira_integration_tree" model="ir.ui.view">
+        <field name="name">jira.integration.tree</field>
+        <field name="model">jira.project.progress</field>
+        <field name="arch" type="xml">
+            <tree string="Jira Issues">
+                <field name="project_key"/>
+                <field name="summary"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de Jira Integration -->
+    <record id="action_jira_integration" model="ir.actions.act_window">
+        <field name="name">Jira Integration</field>
+        <field name="res_model">jira.project.progress</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Menú para acceder al módulo -->
+    <menuitem id="menu_jira_integration_root" name="Jira Integration" sequence="10"/>
+    <menuitem id="menu_jira_integration" name="Jira Projects" parent="menu_jira_integration_root" action="action_jira_integration" sequence="10"/>
+</odoo>
